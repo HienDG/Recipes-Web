@@ -5,12 +5,14 @@ import "./index.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RecipesProvider from "./context/RecipesContext";
+import { SearchProvider, SidebarProvider } from "./context/index";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RecipesProvider>
+  <SearchProvider>
     <Router>
-      <App />
+      <SidebarProvider>
+        <App />
+      </SidebarProvider>
     </Router>
-  </RecipesProvider>
+  </SearchProvider>
 );

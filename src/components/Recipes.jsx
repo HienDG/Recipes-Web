@@ -1,24 +1,63 @@
-import { RecipesContext } from "../context/RecipesContext";
+import { useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 
-import { useContext } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { SearchContext } from "../context/index";
+
 import Recipe from "./Recipe";
+import { PlaceHolder } from "./ui/index";
 
-const Recipes = ({ title }) => {
-  const recipesCtx = useContext(RecipesContext);
-  const recipeSlices = [...recipesCtx.recipes];
+import { getRecipes, MAX_LENGTH, MIN_LENGTH } from "./utils/";
+
+const Recipes = ({ title, type }) => {
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const searchCtx = useContext(SearchContext);
+  const recipeSlices = [...recipes].slice(MIN_LENGTH, MAX_LENGTH);
+
+  useEffect(() => {
+    const get = async () => {
+      setIsLoading((prevState) => !prevState);
+      const { recipes } = await getRecipes("", { search: type });
+      setRecipes(recipes);
+      setIsLoading((prevState) => !prevState);
+    };
+
+    try {
+      get();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const handleNavigation = (event) => {
+    const queryId = event.target.dataset.recipe;
+    searchCtx.savedQuery(queryId);
+    navigate("/results");
+  };
 
   return (
-    <section>
-      <div>
-        <h1>{title}</h1>
+    <section className="container mx-auto my-8">
+      <div className="flex cursor-pointer  justify-center mb-[2rem] lg:text-[2.25rem]  text-[1.5rem] items-center gap-4">
+        <div className="capitalize hover:text-[red]" data-recipe={type} onClick={handleNavigation}>
+          {title}
+        </div>
+        <AiOutlineArrowRight className="fill-[orange]" />
       </div>
-      <div className='container mx-auto mt-4'>
-        <div className='w-[1200px] mx-auto max-w-full'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0'>
-            {recipeSlices.map((recipe) => (
-              <Recipe recipe={recipe} key={recipe.id} />
-            ))}
-          </div>
+      <div className="container mx-auto mt-4">
+        <div className="w-[1100px] mx-auto max-w-full mb-[2rem]">
+          {isLoading ? (
+            <PlaceHolder number={MAX_LENGTH} />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
+              {recipeSlices.map((recipe) => (
+                <Recipe recipe={recipe} key={recipe.id} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
