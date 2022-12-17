@@ -12,7 +12,20 @@ module.exports = {
       animation: {
         skeleton: "skeleton-loading 1s linear infinite alternate",
       },
+      gridTemplateAreas: {
+        layout: ["image body", "actions   body"],
+        responsive: ["image", "body", "actions"],
+      },
+      gridTemplateColumns: {
+        layout: "18.7rem 1fr",
+      },
+      gridTemplateRows: {
+        layout: "17rem 3rem 1fr auto",
+      },
+      variants: {
+        gridTemplateAreas: ["responsive"],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@savvywombat/tailwindcss-grid-areas")],
 };

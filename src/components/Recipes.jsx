@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { SearchContext } from "../context/index";
+import { useLoading } from "../hooks";
 
 import Recipe from "./Recipe";
 import { PlaceHolder } from "./ui/index";
@@ -11,7 +12,7 @@ import { getRecipes, MAX_LENGTH, MIN_LENGTH } from "./utils/";
 
 const Recipes = ({ title, type }) => {
   const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useLoading(null, 2);
 
   const navigate = useNavigate();
 
@@ -19,11 +20,10 @@ const Recipes = ({ title, type }) => {
   const recipeSlices = [...recipes].slice(MIN_LENGTH, MAX_LENGTH);
 
   useEffect(() => {
+    searchCtx.savedQuery(type);
     const get = async () => {
-      setIsLoading((prevState) => !prevState);
       const { recipes } = await getRecipes("", { search: type });
       setRecipes(recipes);
-      setIsLoading((prevState) => !prevState);
     };
 
     try {
@@ -48,13 +48,19 @@ const Recipes = ({ title, type }) => {
         <AiOutlineArrowRight className="fill-[orange]" />
       </div>
       <div className="container mx-auto mt-4">
-        <div className="w-[1100px] mx-auto max-w-full mb-[2rem]">
+        <div className="w-[1200px] mx-auto max-w-full mb-[2rem]">
           {isLoading ? (
             <PlaceHolder number={MAX_LENGTH} />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
               {recipeSlices.map((recipe) => (
-                <Recipe recipe={recipe} key={recipe.id} />
+                <Recipe
+                  recipe={recipe}
+                  key={recipe.id}
+                  className="h-[200px] gap-y-2"
+                  type="recipes"
+                  path={`/results/${recipe.id}`}
+                />
               ))}
             </div>
           )}

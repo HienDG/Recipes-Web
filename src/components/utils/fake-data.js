@@ -160,7 +160,7 @@ export const LETTERS = [
   "z",
 ];
 
-export const COLLECTIONS = [
+const IMG_ROUTES = [
   {
     url: "https://images.immediate.co.uk/production/volatile/sites/30/2021/12/clementine-duck-e584b78.jpg?webp=true&quality=90&resize=408%2C370",
     title: "November recipes",
@@ -220,5 +220,128 @@ export const COLLECTIONS = [
     url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/tuscan-sausage-kale-ciabatta-stuffing_1-05fa8a2.jpg?webp=true&quality=90&resize=408%2C370",
     title: "Make-ahead Christmas recipes",
     query: "seafood",
+  },
+];
+
+export const COLLECTIONS = [
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2021/12/clementine-duck-e584b78.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "November recipes",
+    query: "broccoli",
+    id: "November recipes",
+    path: "/collections/November recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Airfryer-hero-image-2a442a6.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "Air fryer recipes",
+    query: "tomato",
+    id: "Air fryer recipes",
+    path: "/collections/Air fryer recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/carrot-pilaf-6cf6eba.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "Budget healthy recipes",
+    query: "zucchini",
+    id: "Budget healthy recipes",
+    path: "/collections/Budget healthy recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chciken_biryani-a07f546.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "Easy family curry recipes",
+    query: "curry",
+    id: "Easy family curry recipes",
+    path: "/collections/Easy family curry recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/10/slow-cooker-butter-chicken-931e994.jpg?webp=true&quality=90&resize=620%2C563",
+    title: "Budget slow-cooker recipes",
+    query: "fish",
+    id: "Budget slow-cooker recipes",
+    path: "/collections/Budget slow-cooker recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/07/Spinach-sweet-potato-lentil-dhal-2d76b5c.jpg?webp=true&quality=90&resize=620%2C563",
+    title: "Healthy vegetarian recipes",
+    query: "pizza",
+    id: "Healthy vegetarian recipes",
+    path: "/collections/Healthy vegetarian recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mealprep-pasta-merged_web3_copy-6087bd8.jpg?webp=true&quality=90&resize=500%2C454",
+    title: "80 meal prep ideas",
+    query: "pudding",
+    id: '80 meal prep ideas"',
+    path: "/collections/80 meal prep ideas  ",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken-chorizo-ragu-773ab7d.jpg?webp=true&quality=90&resize=500%2C454",
+    title: "Freezable family recipes",
+    query: "chips",
+    id: "Freezable family recipes",
+    path: "/collections/Freezable family recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/vegan-mug-cake-cbcc296.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "Microwave desserts",
+    query: "chicken",
+    id: "Microwave desserts",
+    path: "/collections/Microwave desserts",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/gfo_1112_cake_so_hr-1-0278f06.jpg?webp=true&quality=90&resize=400%2C363",
+    title: "Christmas cake recipes",
+    query: "chocolate",
+    id: "Christmas cake recipes",
+    path: "/collections/Christmas cake recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/slow-cooker-pork-3c6d196.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "No-oven Sunday lunch recipes",
+    query: "donuts",
+    id: "No-oven Sunday lunch recipes",
+    path: "/collections/No-oven Sunday lunch recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/tuscan-sausage-kale-ciabatta-stuffing_1-05fa8a2.jpg?webp=true&quality=90&resize=408%2C370",
+    title: "Make-ahead Christmas recipes",
+    query: "seafood",
+    id: "Make-ahead Christmas recipes",
+    path: "/collections/Make-ahead Christmas recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
   },
 ];

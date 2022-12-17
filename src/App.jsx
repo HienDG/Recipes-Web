@@ -10,6 +10,9 @@ const Home = lazy(() => import("./pages/Home"));
 const Menu = lazy(() => import("./pages/Menu"));
 const SearchResult = lazy(() => import("./pages/SearchResult"));
 const Collections = lazy(() => import("./pages/Collections"));
+const Bookmarks = lazy(() => import("./pages/Bookmarks"));
+const Preview = lazy(() => import("./pages/Preview"));
+const CollectionPreview = lazy(() => import("./pages/CollectionPreview"));
 
 const App = () => {
   const searchCtx = useContext(SearchContext);
@@ -51,6 +54,31 @@ const App = () => {
           element={
             <Ui.Suspense>
               <Collections />
+            </Ui.Suspense>
+          }
+        />
+
+        <Route
+          path="/saves"
+          element={
+            <Ui.Suspense>
+              <Bookmarks />
+            </Ui.Suspense>
+          }
+        />
+        <Route
+          path="/results/:id"
+          element={
+            <Ui.Suspense>
+              <Preview />
+            </Ui.Suspense>
+          }
+        />
+        <Route
+          path="/collections/:id"
+          element={
+            <Ui.Suspense>
+              <CollectionPreview />
             </Ui.Suspense>
           }
         />

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { SearchContext } from "../context";
 
 import { SEARCH_QUERIES } from "../components/utils/fake-data";
+import { useLoading } from "../hooks";
 
 import {
   AiFillFacebook,
@@ -16,9 +17,9 @@ import Recipe from "../components/Recipe";
 
 const SearchResult = () => {
   const searchCtx = useContext(SearchContext);
-
   const recipes = [...searchCtx.recipes];
   const maxLength = [...searchCtx.recipes].length;
+  const isLoading = useLoading(searchCtx.query, 2);
 
   const [filter] = SEARCH_QUERIES.filter((item) => item === searchCtx.query);
 
@@ -52,13 +53,19 @@ const SearchResult = () => {
         </ul>
       </div>
       <div className="container mx-auto mt-4 ">
-        <div className="w-[1100px] mx-auto max-w-full mb-[2rem]">
-          {searchCtx.isLoading ? (
+        <div className="w-[1200px] mx-auto max-w-full mb-[2rem]">
+          {isLoading ? (
             <PlaceHolder number={16} />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
               {recipes.map((recipe) => (
-                <Recipe recipe={recipe} key={recipe.id} />
+                <Recipe
+                  recipe={recipe}
+                  key={recipe.id}
+                  className="h-[200px] gap-y-2"
+                  type="recipes"
+                  path={`/results/${recipe.id}`}
+                />
               ))}
             </div>
           )}

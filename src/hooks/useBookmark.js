@@ -1,5 +1,7 @@
 import { useReducer, useCallback, useEffect } from "react";
 
+import { uploadData } from "../components/utils/request";
+
 const bookmarkReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE":
@@ -20,7 +22,7 @@ const retrieveData = (id) => {
   return !!data ? data.isSaved : false;
 };
 
-const useBookmark = (id) => {
+const useBookmark = (id, tag) => {
   const [state, dispatch] = useReducer(bookmarkReducer, {
     data: localStorage.getItem(id) ? JSON.parse(localStorage.getItem(id)) : null,
     isSaved: retrieveData(id),
@@ -35,12 +37,22 @@ const useBookmark = (id) => {
 
   useEffect(() => {
     if (state.isSaved) {
-      localStorage.setItem(id, JSON.stringify({ ...state.data, isSaved: true }));
+      localStorage.setItem(id, JSON.stringify({ ...state.data, isSaved: true, tag }));
     }
 
     if (!state.isSaved) {
       localStorage.removeItem(id);
     }
+  }, [state.isSaved]);
+
+  useEffect(() => {
+    const stored = {
+      ...state.data,
+    };
+
+    uploadData(tag, id, stored, state.isSaved ? "PUT" : "DELETE").catch((err) => {
+      console.log(err);
+    });
   }, [state.isSaved]);
 
   return {

@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
       <Navbar />
       <Wrapper>
         <BreadCrumb path={path} />
-        <div>{children}</div>
+        <div className="mt-[30px]">{children}</div>
       </Wrapper>
       <div className="w-full max-w-full p-[4rem]" />
       <Sidebar />

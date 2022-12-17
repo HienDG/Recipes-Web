@@ -58,7 +58,7 @@ const SearchBox = () => {
     <div className="relative hidden lg:block ">
       <div>
         <button className="p-[1rem]" onClick={handleClose}>
-          <AiOutlineSearch className="text-[1.25rem]" />
+          <AiOutlineSearch className="text-[1.5rem]" />
         </button>
       </div>
       {isClose ? null : (
@@ -111,9 +111,16 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-center gap-2">
           <SearchBox />
-          <div className="cursor-pointer md:p-[1rem] px-[1.5rem] py-2 flex items-center gap-[0.5rem]">
-            <MdBookmark className="text-[1.5rem] hover:fill-orange-600" />
-          </div>
+          <Link
+            to="/saves"
+            className="cursor-pointer md:p-[1rem] px-[1rem] py-[1rem] flex items-center gap-[0.5rem]"
+          >
+            <MdBookmark
+              className="text-[1.5rem] hover:fill-orange-600"
+              aria-label="Saves"
+              title="Saves"
+            />
+          </Link>
         </div>
       </div>
     </nav>

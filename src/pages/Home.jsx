@@ -4,8 +4,8 @@ const Home = () => {
   return (
     <div>
       <Recipes title="Use Your Noodle" type="noodle" />
-
-      {/* <Recipes title="What's New" type="cake" /> */}
+      <div className="w-full max-w-full p-[2rem]" />
+      <Recipes title="What's New" type="cake" />
     </div>
   );
 };
