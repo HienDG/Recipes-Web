@@ -26,7 +26,7 @@ const BreadCrumb = ({ path }) => {
   });
   return (
     <div
-      className="container md:flex hidden mx-auto md:w-[72rem] max-w-[95%] my-4 text-[1.25rem] gap-3"
+      className="container md:flex hidden mx-auto md:w-[1200px] max-w-[95%] my-4 text-[1.25rem] gap-3"
       hidden={isHidden}
     >
       {location.map((item, i) => (
@@ -51,8 +51,8 @@ const Layout = ({ children }) => {
         <BreadCrumb path={path} />
         <div className="mt-[30px]">{children}</div>
       </Wrapper>
-      <div className="w-full max-w-full p-[4rem]" />
       <Sidebar />
+      <div className="w-full max-w-full p-[2rem]" />
       <Footer />
     </div>
   );

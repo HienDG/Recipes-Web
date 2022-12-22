@@ -345,3 +345,66 @@ export const COLLECTIONS = [
       "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
   },
 ];
+
+export const NUTRITION = [
+  {
+    label: "Total Fat",
+    quantity: "41g",
+    percent: "52%",
+  },
+  {
+    label: "Saturated Fat",
+    quantity: "21g",
+    percent: "105%",
+  },
+  {
+    label: "Cholesterol",
+    quantity: "236mg",
+    percent: "79%",
+  },
+  {
+    label: "Sodium",
+    quantity: "902mg",
+    percent: "39%",
+  },
+  {
+    label: "Total Carbohydrate",
+    quantity: "1g",
+    percent: "0%",
+  },
+  {
+    label: "Dietary Fiber",
+    quantity: "0g",
+    percent: "1%",
+  },
+  {
+    label: "Total Sugars",
+    quantity: "0g",
+    percent: "",
+  },
+  {
+    label: "Protein",
+    quantity: "52g",
+    percent: "",
+  },
+  {
+    label: "Vitamin C",
+    quantity: "0mg",
+    percent: "1%",
+  },
+  {
+    label: "Calcium",
+    quantity: "44mg",
+    percent: "3%",
+  },
+  {
+    label: "Iron",
+    quantity: "5mg",
+    percent: "28%",
+  },
+  {
+    label: "Potassium",
+    quantity: "776mg",
+    percent: "",
+  },
+];

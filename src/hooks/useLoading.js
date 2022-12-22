@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ONE_THOUSAND_MILLISECOND } from "../components/utils";
 
-const useLoading = (dependence, sec = 1) => {
+const useLoading = (sec = 1, reset) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const useLoading = (dependence, sec = 1) => {
     timeout().finally(() => {
       setIsLoading(false);
     });
-  }, [dependence]);
+  }, [reset]);
 
   return isLoading;
 };

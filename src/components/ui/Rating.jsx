@@ -8,30 +8,30 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const StarRating = () => {
+const RatingStar = ({ className = "" }) => {
   const [rating, setRating] = useState(4);
   const [hover, setHover] = useState(0);
 
   return (
-    <div className='flex flex-row items-center'>
+    <div className={`flex flex-row items-center ${className}`}>
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
           <Button
-            type='button'
+            type="button"
             key={index}
-            className={index <= (hover || rating) ? "text-[orange]" : "text-[#ccc]"}
+            className={index <= (hover || rating) ? "text-[#f59e0b]" : "text-[#ccc]"}
             onClick={() => setRating(index)}
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(rating)}
           >
-            <span className='text-[1.25rem]'>&#9733;</span>
+            <span className="text-[1.25rem]">&#9733;</span>
           </Button>
         );
       })}
-      <div className='ml-[1rem] text-[1.25rem]'>100 Ratings</div>
+      <div className="ml-[1rem] text-[1.25rem]">100 Ratings</div>
     </div>
   );
 };
 
-export default StarRating;
+export default RatingStar;

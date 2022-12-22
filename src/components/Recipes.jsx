@@ -12,7 +12,7 @@ import { getRecipes, MAX_LENGTH, MIN_LENGTH } from "./utils/";
 
 const Recipes = ({ title, type }) => {
   const [recipes, setRecipes] = useState([]);
-  const isLoading = useLoading(null, 2);
+  const isLoading = useLoading(2, null);
 
   const navigate = useNavigate();
 
@@ -40,30 +40,28 @@ const Recipes = ({ title, type }) => {
   };
 
   return (
-    <section className="container mx-auto my-8">
-      <div className="flex cursor-pointer  justify-center mb-[2rem] lg:text-[2.25rem]  text-[1.5rem] items-center gap-4">
-        <div className="capitalize hover:text-[red]" data-recipe={type} onClick={handleNavigation}>
-          {title}
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto w-[1200px] max-w-full">
+        <div className="flex items-center justify-center gap-4 mb-10 group">
+          <h2
+            className="text-2xl font-bold hover:text-black group-hover:cursor-pointer"
+            onClick={handleNavigation}
+            data-recipe={type}
+          >
+            {title}
+          </h2>
+          <AiOutlineArrowRight className="text-2xl fill-[#48BB78]" />
         </div>
-        <AiOutlineArrowRight className="fill-[orange]" />
-      </div>
-      <div className="container mx-auto mt-4">
-        <div className="w-[1200px] mx-auto max-w-full mb-[2rem]">
-          {isLoading ? (
-            <PlaceHolder number={MAX_LENGTH} />
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
-              {recipeSlices.map((recipe) => (
-                <Recipe
-                  recipe={recipe}
-                  key={recipe.id}
-                  className="h-[200px] gap-y-2"
-                  type="recipes"
-                  path={`/results/${recipe.id}`}
-                />
-              ))}
-            </div>
-          )}
+        <div className="flex flex-wrap -m-4">
+          {recipeSlices.map((recipe) => (
+            <Recipe
+              key={recipe.id}
+              type="recipes"
+              path={`/results/${recipe.id}`}
+              recipe={recipe}
+              category={type}
+            />
+          ))}
         </div>
       </div>
     </section>

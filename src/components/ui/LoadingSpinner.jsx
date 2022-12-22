@@ -19,8 +19,8 @@ const Loading = styled.div`
 
 const LoadingSpinner = () => {
   return (
-    <div className='flex justify-center items-center h-[50vh]'>
-      <Loading className='animate-spin'></Loading>
+    <div className="flex justify-center items-center h-[100vh]">
+      <Loading className="animate-spin"></Loading>
     </div>
   );
 };

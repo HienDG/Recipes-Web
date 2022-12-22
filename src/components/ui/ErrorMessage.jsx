@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AiFillWarning } from "react-icons/ai";
 
 const Error = styled.div`
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;

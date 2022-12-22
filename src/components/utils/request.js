@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_kEY = "e8cad743-19d4-415c-b13c-d83a89fd39b5";
+const API_KEY = "e8cad743-19d4-415c-b13c-d83a89fd39b5";
+// const API_KEY = "975c6865-3cc2-4ec0-8ddc-059b47136b0f";
 const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes";
 const API_FIRE_BASE = "https://cafe-f46b6-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
@@ -12,7 +13,17 @@ export const getRecipes = async (path, option) => {
   const res = await request.get(path, {
     params: {
       ...option,
-      key: API_kEY,
+      key: API_KEY,
+    },
+  });
+  const { data } = await res.data;
+  return data;
+};
+
+export const getRecipe = async (path) => {
+  const res = await request.get(`/${path}`, {
+    params: {
+      key: API_KEY,
     },
   });
   const { data } = await res.data;

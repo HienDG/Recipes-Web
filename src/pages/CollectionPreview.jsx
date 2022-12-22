@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { PlaceHolder } from "../components/ui";
+import { BsFacebook, BsTwitter, BsFillChatFill } from "react-icons/bs";
+
+import { LoadingSpinner, PlaceHolder, RatingStar } from "../components/ui";
 import { COLLECTIONS, getRecipes } from "../components/utils";
 import { useLoading } from "../hooks";
 
@@ -9,7 +11,7 @@ import { Recipe } from "../components";
 
 const CollectionPreview = () => {
   const params = useParams();
-  const isLoading = useLoading(params.id, 2);
+  const isLoading = useLoading(2, params.id);
   const [recipes, setRecipes] = useState([]);
 
   const [filterCollection] = COLLECTIONS.filter((item) => item.id === params.id);
@@ -27,86 +29,61 @@ const CollectionPreview = () => {
     }
   }, [params.id]);
 
+  if (isLoading) return <LoadingSpinner />;
+
   return (
-    <section className="mb-[30px]">
-      <div className=" bg-[#f0f0f0]">
-        <div className="grid container mx-auto px-[1.25rem] py-[1.875rem] w-[1000px] max-w-[90%] md:grid-areas-layout md:grid-cols-layout grid-areas-responsive md:grid-rows-layout h-full md:gap-x-[1.25rem] gap-y-[1rem] mb-[30px]">
-          <div
-            className={`md:w-[300px] w-full grid-in-image ${
-              isLoading ? "animate-skeleton opacity-80" : ""
-            }`}
-          >
-            <div>
-              <div className="block">
-                <div className="w-full h-full"></div>
-                {isLoading ? (
-                  <div className="md:w-full md:h-full h-[300px]"></div>
-                ) : (
-                  <img
-                    src={filterCollection.image_url}
-                    alt={filterCollection.id}
-                    className="h-full w-full object-cover"
-                  />
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="grid-in-actions"></div>
-          <div className=" col-span-3 grid-in-body h-full ml-2">
-            <div>
-              <h1
-                className={`${
-                  isLoading
-                    ? "animate-skeleton opacity-60 h-[50px] text-transparent"
-                    : "text-[#333] text-[39px] leading-[50px] capitalize"
-                }`}
-              >
+    <section className="overflow-hidden text-gray-600 body-font">
+      <div className="bg-[#f1f1f1]">
+        <div className="container px-5 py-24 mx-auto w-[1200px] max-w-full">
+          <div className="flex flex-wrap mx-auto lg:w-4/5">
+            <img
+              alt={filterCollection.id}
+              className="object-cover object-center w-full rounded h-[400px] lg:w-1/2"
+              src={filterCollection.image_url}
+            />
+            <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
+              <h2 className="text-sm tracking-widest text-gray-500 title-font">
+                Public by Hien Dang
+              </h2>
+              <h1 className="mb-1 text-3xl font-medium text-gray-900 title-font">
                 {filterCollection.title}
               </h1>
-            </div>
-            <div
-              className={`${
-                isLoading ? "animate-skeleton opacity-60 h-[30px] w-fit text-transparent" : ""
-              } mt-[15px] mr-[1.875rem] text-lg`}
-            >
-              100 items
-            </div>
-            <div className="w-full max-w-full p-[.5rem]" />
-            <div
-              className={`${
-                isLoading
-                  ? "animate-skeleton opacity-60 h-[30px] w-fit text-transparent"
-                  : "text-[#be2a77]"
-              }  leading-6 mt-[15px] underline text-base `}
-            >
-              Magazine subscription - your first 5 issues for only £5!
-            </div>
-            <div className="mt-[15px]">
-              <p
-                className={`first-letter:uppercase  text-lg leading-[27px] ${
-                  isLoading
-                    ? "animate-skeleton opacity-60 h-fit w-fit text-transparent"
-                    : "text-[#333]"
-                }`}
-              >
+              <div className="flex mb-4">
+                <span className="flex items-center">
+                  <RatingStar />
+                  <span className="ml-3 text-gray-600">4 Reviews</span>
+                </span>
+                <span className="flex gap-2 py-2 pl-3 ml-3 border-l-2 border-gray-200 space-x-2s">
+                  <a className="text-gray-500">
+                    <BsFacebook />
+                  </a>
+                  <a className="text-gray-500">
+                    <BsTwitter />
+                  </a>
+                  <a className="text-gray-500">
+                    <BsFillChatFill />
+                  </a>
+                </span>
+              </div>
+              <p className="mb-6 text-lg font-bold">{recipes.length} Recipes</p>
+              <p className="text-xl leading-relaxed first-letter:uppercase">
                 {filterCollection.description}
               </p>
             </div>
-            <ul></ul>
           </div>
         </div>
       </div>
       <div className="w-full max-w-full p-[1.5rem]" />
-      <div className="w-[1000px] mx-auto max-w-[95%] mb-[2rem] container">
+      <div className="w-[1200px] mx-auto max-w-full mb-[2rem] container md:p-4 p-[0.625rem]">
         {isLoading ? (
-          <PlaceHolder number={COLLECTIONS.length} />
+          <LoadingSpinner />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
+          <div className="flex flex-wrap -m-4">
             {recipes.map((recipe) => (
               <Recipe
                 recipe={recipe}
                 key={recipe.id}
-                className="h-[150px]"
+                className="h-[200px]"
                 type="collections"
                 path={`/results/${recipe.id}`}
               />

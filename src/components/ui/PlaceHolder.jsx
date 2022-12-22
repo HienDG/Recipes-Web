@@ -1,3 +1,5 @@
+import { useCallback, memo } from "react";
+
 import styled from "styled-components";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -6,19 +8,40 @@ const Skeleton = styled.div`
   height: 1rem;
 `;
 
-const PlaceHolder = ({ number = 1 }) => {
-  if (number === 0) {
+const responsive = new Map([
+  [1, ""],
+  [2, "md:"],
+  [3, "lg:"],
+  [4, "xl:"],
+]);
+
+const PlaceHolder = ({ loop = 1, maxCol = 4 }) => {
+  if (loop === 0) {
     return <LoadingSpinner />;
   }
 
+  const columns = useCallback(
+    [...Array(maxCol)]
+      .fill()
+      .map((_, index) => {
+        index += 1;
+
+        return `${responsive.get(index)}grid-cols-${index}`;
+      })
+      .join(" "),
+    []
+  );
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0">
-      {[...Array(number)].map((_, index) => {
+    <div
+      className={`grid ${columns} gap-[1rem] gap-y-[1.5rem] max-w-sm mx-auto md:max-w-none md:mx-0`}
+    >
+      {[...Array(loop)].map((_, index) => {
         index += 1;
         return (
           <div className="cursor-pointer " key={index}>
             <div className="border border-[#e4e4e4] h-[300px] relative overflow-hidden group transition">
-              <div className="w-full h-full flex justify-center items-center">
+              <div className="flex items-center justify-center w-full h-full">
                 <div className="animate-skeleton opacity-60 w-[150px] h-[150px]" />
               </div>
             </div>
@@ -34,4 +57,4 @@ const PlaceHolder = ({ number = 1 }) => {
   );
 };
 
-export default PlaceHolder;
+export default memo(PlaceHolder);
