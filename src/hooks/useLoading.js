@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { ONE_THOUSAND_MILLISECOND } from "../components/utils";
 
-const useLoading = (sec = 1, reset) => {
-  const [isLoading, setIsLoading] = useState(false);
+const useLoading = (sec = 1, reset, reset1) => {
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const timeout = function () {
-      setIsLoading(true);
       return new Promise(function (res, _) {
         setTimeout(function () {
           res();
@@ -17,7 +17,7 @@ const useLoading = (sec = 1, reset) => {
     timeout().finally(() => {
       setIsLoading(false);
     });
-  }, [reset]);
+  }, [reset, reset1]);
 
   return isLoading;
 };

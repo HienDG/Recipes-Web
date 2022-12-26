@@ -1,7 +1,5 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { useLayoutEffect, lazy, useContext } from "react";
-
-import { SearchContext } from "./context";
+import { Route, Routes } from "react-router-dom";
+import { lazy } from "react";
 
 import * as Ui from "./components/ui/index";
 import Layout from "./components/Layout";
@@ -15,13 +13,6 @@ const Preview = lazy(() => import("./pages/Preview"));
 const CollectionPreview = lazy(() => import("./pages/CollectionPreview"));
 
 const App = () => {
-  const searchCtx = useContext(SearchContext);
-  const location = useLocation();
-
-  useLayoutEffect(() => {
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location.pathname, searchCtx.query]);
-
   return (
     <Layout>
       <Routes>

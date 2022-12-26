@@ -3,7 +3,6 @@ import { useContext, memo } from "react";
 import { SearchContext } from "../context";
 
 import { SEARCH_QUERIES } from "../components/utils/fake-data";
-import { useLoading } from "../hooks";
 
 import {
   AiFillFacebook,
@@ -12,25 +11,22 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 
-import { ErrorMessage, LoadingSpinner } from "../components/ui/index";
-import Recipe from "../components/Recipe";
+import { ErrorMessage } from "../components/ui/index";
+import { PrRecipeItem } from "../components";
 
 const SearchResult = () => {
   const searchCtx = useContext(SearchContext);
   const recipes = [...searchCtx.recipes];
   const maxLength = [...searchCtx.recipes].length;
-  const isLoading = useLoading(1.5, searchCtx.query);
 
   const [filter] = SEARCH_QUERIES.filter((item) => item === searchCtx.query);
 
   return (
     <>
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : !filter ? (
+      {!filter ? (
         <ErrorMessage />
       ) : (
-        <section className="container mx-auto max-w-[95%]">
+        <section className="container mx-auto max-w-full">
           <div className="flex justify-center mb-[2rem] lg:text-[2.25rem] lg:mt-8 md:mt-4 text-[1.5rem] items-center gap-4 flex-col">
             <h1 className="text-[3rem] leading-[3.25rem] first-letter:uppercase font-bold">
               {searchCtx.query}
@@ -56,11 +52,11 @@ const SearchResult = () => {
               </li>
             </ul>
           </div>
-          <div className="container mx-auto mt-4 ">
+          <div className="container mx-auto mt-4 py-24">
             <div className="w-[1200px] mx-auto max-w-full mb-[2rem]">
               <div className="flex flex-wrap -m-4">
                 {recipes.map((recipe) => (
-                  <Recipe
+                  <PrRecipeItem
                     recipe={recipe}
                     key={recipe.id}
                     className="h-[200px] gap-y-2"

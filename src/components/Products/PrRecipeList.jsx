@@ -2,22 +2,19 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { SearchContext } from "../context/index";
-import { useLoading } from "../hooks";
+import { SearchContext } from "../../context/index";
 
-import Recipe from "./Recipe";
-import { PlaceHolder } from "./ui/index";
+import PrRecipeItem from "./PrRecipeItem";
 
-import { getRecipes, MAX_LENGTH, MIN_LENGTH } from "./utils/";
+import { getRecipes, MIN_LENGTH } from "../utils/";
 
-const Recipes = ({ title, type }) => {
+const PrRecipeList = ({ title, type }) => {
   const [recipes, setRecipes] = useState([]);
-  const isLoading = useLoading(2, null);
 
   const navigate = useNavigate();
 
   const searchCtx = useContext(SearchContext);
-  const recipeSlices = [...recipes].slice(MIN_LENGTH, MAX_LENGTH);
+  const recipeSlices = [...recipes].slice(MIN_LENGTH, 6);
 
   useEffect(() => {
     searchCtx.savedQuery(type);
@@ -40,7 +37,7 @@ const Recipes = ({ title, type }) => {
   };
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font bg-white">
       <div className="container px-5 py-24 mx-auto w-[1200px] max-w-full">
         <div className="flex items-center justify-center gap-4 mb-10 group">
           <h2
@@ -54,7 +51,7 @@ const Recipes = ({ title, type }) => {
         </div>
         <div className="flex flex-wrap -m-4">
           {recipeSlices.map((recipe) => (
-            <Recipe
+            <PrRecipeItem
               key={recipe.id}
               type="recipes"
               path={`/results/${recipe.id}`}
@@ -68,4 +65,4 @@ const Recipes = ({ title, type }) => {
   );
 };
 
-export default Recipes;
+export default PrRecipeList;

@@ -150,7 +150,6 @@ export const LETTERS = [
   "q",
   "r",
   "s",
-  "s",
   "t",
   "u",
   "v",
@@ -158,69 +157,6 @@ export const LETTERS = [
   "x",
   "y",
   "z",
-];
-
-const IMG_ROUTES = [
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2021/12/clementine-duck-e584b78.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "November recipes",
-    query: "broccoli",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Airfryer-hero-image-2a442a6.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "Air fryer recipes",
-    query: "tomato",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/carrot-pilaf-6cf6eba.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "Budget healthy recipes",
-    query: "zucchini",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chciken_biryani-a07f546.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "Easy family curry recipes",
-    query: "curry",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/10/slow-cooker-butter-chicken-931e994.jpg?webp=true&quality=90&resize=620%2C563",
-    title: "Budget slow-cooker recipes",
-    query: "fish",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/07/Spinach-sweet-potato-lentil-dhal-2d76b5c.jpg?webp=true&quality=90&resize=620%2C563",
-    title: "Healthy vegetarian recipes",
-    query: "pizza",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mealprep-pasta-merged_web3_copy-6087bd8.jpg?webp=true&quality=90&resize=500%2C454",
-    title: "80 meal prep ideas",
-    query: "pudding",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken-chorizo-ragu-773ab7d.jpg?webp=true&quality=90&resize=500%2C454",
-    title: "Freezable family recipes",
-    query: "chips",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/04/vegan-mug-cake-cbcc296.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "Microwave desserts",
-    query: "chicken",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/gfo_1112_cake_so_hr-1-0278f06.jpg?webp=true&quality=90&resize=400%2C363",
-    title: "Christmas cake recipes",
-    query: "chocolate",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2022/09/slow-cooker-pork-3c6d196.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "No-oven Sunday lunch recipes",
-    query: "donuts",
-  },
-  {
-    url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/tuscan-sausage-kale-ciabatta-stuffing_1-05fa8a2.jpg?webp=true&quality=90&resize=408%2C370",
-    title: "Make-ahead Christmas recipes",
-    query: "seafood",
-  },
 ];
 
 export const COLLECTIONS = [
@@ -341,6 +277,36 @@ export const COLLECTIONS = [
     query: "seafood",
     id: "Make-ahead Christmas recipes",
     path: "/collections/Make-ahead Christmas recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2013/05/Turkey-cob-salad-copy-28e138f.jpg?webp=true&quality=90&resize=620%2C563",
+    title: "Christmas Turkey Recipes",
+    query: "turkey",
+    id: "Christmas Turkey Recipes",
+    path: "/collections/Christmas Turkey Recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/rainbow-prawn-cocktails-e837929.jpg?webp=true&quality=90&resize=500%2C454",
+    title: "Quick Nibbles Recipes",
+    query: "apricot",
+    id: "Quick Nibbles Recipes",
+    path: "/collections/Quick Nibbles Recipes",
+    description:
+      "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
+  },
+  {
+    image_url:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/christmas-pudding-ice-cream-31fa57c.jpg?webp=true&quality=90&resize=500%2C454",
+    title: "Christmas Pudding Recipes",
+    query: "pudding",
+    id: "Christmas Pudding Recipes",
+    path: "/collections/Christmas Pudding Recipes",
     description:
       "felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris",
   },

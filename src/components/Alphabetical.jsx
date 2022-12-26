@@ -22,7 +22,7 @@ const Alphabetical = () => {
   };
 
   return (
-    <div className="container mx-auto w-[72rem] max-w-[95%] md:px-5 px-[0.625rem]">
+    <div className="container mx-auto w-[72rem] max-w-full md:px-10 px-4 pt-10 pb-24">
       <h2 className="text-[1.125rem] font-bold mb-[1rem] leading-6">
         Find a topic by its first letter:
       </h2>

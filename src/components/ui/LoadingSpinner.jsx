@@ -13,13 +13,12 @@ const Loading = styled.div`
     border-radius: 50%;
     border: 6px solid #000;
     border-color: #000 transparent #000 transparent;
-    animation: lds-dual-ring 1.2s linear infinite;
   }
 `;
 
 const LoadingSpinner = () => {
   return (
-    <div className="flex justify-center items-center h-[100vh]">
+    <div className="flex justify-center h-[1000px] py-24">
       <Loading className="animate-spin"></Loading>
     </div>
   );

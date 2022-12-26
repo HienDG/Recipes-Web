@@ -5,7 +5,7 @@ import { SidebarContext } from "../context";
 
 import { MdBookmark } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
-import icon from "../assets/images.png";
+import logo from "../assets/logo/logo.png";
 import SearchBox from "./SearchBox";
 
 const Navbar = () => {
@@ -29,7 +29,7 @@ const Navbar = () => {
           to="/"
           className="text-3xl text-white font-medium px-[1rem] mx-auto lg:m-0 flex gap-2 md:items-center md:justify-center lg:border-r-[4px] lg:border-white"
         >
-          <img src={icon} alt="icon" className="h-[40px] rounded-[50%]" />
+          <img src={logo} alt="icon" className="h-[40px] rounded-[50%]" />
           <span>Recipes</span>
         </Link>
         <nav className="xl:gap-[1.5rem] text-white mr-auto lg:gap-[1rem] md:gap-[0.5rem] lg:flex hidden justify-center items-center text-xl ">

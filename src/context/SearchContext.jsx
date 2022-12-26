@@ -3,7 +3,6 @@ import { getRecipes } from "../components/utils/request";
 
 export const SearchContext = createContext({
   recipes: [],
-  isLoading: false,
   query: "",
   savedQuery: (query) => {},
 });
@@ -15,16 +14,13 @@ const retrieveData = () => {
 
 const SearchProvider = ({ children }) => {
   const [recipes, setRecipe] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const searchQuery = retrieveData();
   const [query, setQuery] = useState(searchQuery);
 
   const get = async () => {
-    setIsLoading((prevState) => !prevState);
     const { recipes } = await getRecipes("", { search: query });
     setRecipe(recipes);
-    setIsLoading((prevState) => !prevState);
   };
 
   const savedQuery = (query) => {
@@ -36,12 +32,12 @@ const SearchProvider = ({ children }) => {
     try {
       get();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, [query, searchQuery]);
 
   return (
-    <SearchContext.Provider value={{ recipes, isLoading, savedQuery, query }}>
+    <SearchContext.Provider value={{ recipes, savedQuery, query }}>
       {children}
     </SearchContext.Provider>
   );

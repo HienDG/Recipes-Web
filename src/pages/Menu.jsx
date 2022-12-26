@@ -2,15 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 import { SearchContext } from "../context";
-import { useSearch, useLoading } from "../hooks";
+import { useSearch } from "../hooks";
 
 import { AiOutlineSearch } from "react-icons/ai";
-import { LoadingSpinner } from "../components/ui";
 
 import Alphabetical from "../components/Alphabetical";
 
 const Menu = () => {
-  const isLoading = useLoading(1);
   const navigate = useNavigate();
   const searchCtx = useContext(SearchContext);
   const { state, event } = useSearch();
@@ -23,11 +21,9 @@ const Menu = () => {
     navigate("/results");
   };
 
-  if (isLoading) return <LoadingSpinner />;
-
   return (
     <div>
-      <section className="bg-[#f5f6ea] mb-8">
+      <section className="bg-[#f5f6ea] mb-8 py-24">
         <div className="md:p-8 p-2 text-black leading-7 container mx-auto h-[17.625rem] grid grid-rows-2 gap-3">
           <h1 className="leading-[2.75rem] text-[2.25rem] mb-3 font-bold text-center flex justify-center items-center">
             Menu A - Z
