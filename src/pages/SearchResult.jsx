@@ -23,7 +23,7 @@ const SearchResult = () => {
 
   return (
     <>
-      {!filter ? (
+      {!filter || maxLength === 0 ? (
         <ErrorMessage />
       ) : (
         <section className="container mx-auto max-w-full">

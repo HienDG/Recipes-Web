@@ -21,7 +21,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         layout: "18.7rem 1fr",
-        previews: "minmax(0,44rem) minmax(0, 18.5rem);",
+        previews: "minmax(0,44rem) minmax(0, 22.5rem);",
         "previews-1": "minmax(0,44rem)",
       },
       gridTemplateRows: {

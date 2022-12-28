@@ -4,6 +4,8 @@ import { lazy } from "react";
 import * as Ui from "./components/ui/index";
 import Layout from "./components/Layout";
 
+import NotFoundPage from "./pages/NotFoundPage";
+
 const Home = lazy(() => import("./pages/Home"));
 const Menu = lazy(() => import("./pages/Menu"));
 const SearchResult = lazy(() => import("./pages/SearchResult"));
@@ -73,6 +75,7 @@ const App = () => {
             </Ui.Suspense>
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );

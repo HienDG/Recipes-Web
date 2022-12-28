@@ -1,6 +1,6 @@
 import { memo, useContext, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useMatch } from "react-router-dom";
 
 import { MdArrowRight } from "react-icons/md";
 
@@ -66,8 +66,13 @@ const Layout = ({ children }) => {
       <Navbar />
       <Wrapper>
         <BreadCrumb path={path} />
-        {isLoading ? <LoadingSpinner /> : <div className="mt-[30px]">{children}</div>}
+        <div className={`mt-[30px] ${isLoading ? "h-screen" : "h-full"}`}>{children}</div>
       </Wrapper>
+      {isLoading ? (
+        <div className="fixed bg-white top-[73px] h-screen left-0 right-0 z-50">
+          <LoadingSpinner />
+        </div>
+      ) : null}
       <Sidebar />
       <Footer />
     </>

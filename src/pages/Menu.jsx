@@ -28,27 +28,25 @@ const Menu = () => {
           <h1 className="leading-[2.75rem] text-[2.25rem] mb-3 font-bold text-center flex justify-center items-center">
             Menu A - Z
           </h1>
-          <div className="w-full h-fit p-5">
+          <div className="w-full h-fit py-5 px-10">
             <form
-              className="mx-auto md:w-[80%] w-[90%] border-[2px] bg-white border-[#ccc] rounded-xl"
+              className="mx-auto md:w-full lg:w-[70%] border-[2px] bg-white border-[#ccc] rounded-xl flex justify-center items-center"
               onSubmit={handleSearch}
             >
-              <div className="flex items-center justify-end">
-                <input
-                  placeholder="Search over 1,000,000 recipes..."
-                  className=" py-[12px] px-[20px]  outline-none flex-1"
-                  type="text"
-                  value={state.value}
-                  onChange={event.change}
-                  onBlur={event.blur}
-                />
-                <button
-                  className="w-[3.5rem] h-[3.5rem] flex items-center justify-center  disabled:pointer-events-auto"
-                  disabled={state.error}
-                >
-                  <AiOutlineSearch className="fill-black text-[1.5rem]" />
-                </button>
-              </div>
+              <input
+                placeholder="Search over 1,000,000 recipes..."
+                className=" py-[12px] px-[20px]  outline-none flex-1 ml-10"
+                type="text"
+                value={state.value}
+                onChange={event.change}
+                onBlur={event.blur}
+              />
+              <button
+                className="w-[3.5rem] h-[3.5rem] flex items-center justify-center  disabled:pointer-events-auto"
+                disabled={state.error}
+              >
+                <AiOutlineSearch className="fill-black text-[1.5rem]" />
+              </button>
             </form>
           </div>
         </div>

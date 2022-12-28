@@ -57,7 +57,7 @@ const Bookmarks = () => {
         <article
           className={` ${
             recipes.length === 0 ? "h-[500px]" : "h-fit"
-          } max-w-full w-[1200px] mx-auto bg-white shadow-md rounded-2xl`}
+          } max-w-full w-[1200px] mx-auto bg-white shadow-md rounded-2xl px-10`}
         >
           {recipes.length === 0 ? (
             <div className="h-[500px] flex items-center justify-center">
@@ -77,16 +77,14 @@ const Bookmarks = () => {
               </div>
             </div>
           ) : (
-            <div className="flex flex-wrap px-5">
+            <div className="flex flex-wrap -m-4 max-sm:justify-center  py-12">
               {recipes.map((recipe) => (
-                <div className="p-4 lg:w-1/4 md:w-1/2 mt-4" key={recipe.id}>
+                <div className="p-4 lg:w-1/4 md:w-1/3 mt-4 sm:w-1/2 w-[300px]" key={recipe.id}>
                   <div className="relative h-full bg-[#f0f0f0] overflow-hidden transition border-2 border-gray-500 rounded-lg border-opacity-60 group">
-                    <LazyImage
-                      image={recipe.image_url}
-                      title={recipe.title}
-                      effect="blur"
-                      wrapperClassName="w-full mx-auto flex justify-center items-center "
-                      imageClassName="object-cover object-center w-full lg:h-48 md:h-36"
+                    <img
+                      src={recipe.image_url}
+                      alt={recipe.title}
+                      className="object-cover object-center w-full lg:h-48 md:h-36"
                     />
                     <div className="absolute top-2 z-30 -right-11 group-hover:right-0 p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <button onClick={handleDelete.bind(null, recipe)}>
