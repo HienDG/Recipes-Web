@@ -75,8 +75,8 @@ const Bookmarks = () => {
           ) : (
             <div className="flex flex-wrap -m-4 max-sm:justify-center">
               {recipes.map((recipe) => (
-                <div className="p-4 lg:w-1/4 md:w-1/3 mt-4 sm:w-1/2 w-[300px] " key={recipe.id}>
-                  <div className="relative h-full overflow-hidden transition border-2 border-gray-500 rounded-lg border-opacity-60 group">
+                <div className="p-4 lg:w-1/4 md:w-1/3 mt-4 sm:w-1/2 w-[300px]" key={recipe.id}>
+                  <div className="relative h-full overflow-hidden transition rounded-lg border-opacity-60 group shadow-lg">
                     <img
                       src={recipe.image_url}
                       alt={recipe.title}
@@ -89,10 +89,10 @@ const Bookmarks = () => {
                         </div>
                       </button>
                     </div>
-                    <div className="p-6 mt-2 bg-white">
+                    <div className="p-6 bg-[#f0f0f0]">
                       <Link to={`/results/${recipe.id}`}>
-                        <h2 className="mb-1 text-xs font-medium tracking-widest text-gray-400 uppercase title-font italic">
-                          publisher:{" "}
+                        <h2 className="mb-2 text-xs font-medium tracking-widest text-gray-800 uppercase title-font italic">
+                          publisher:
                           <span className="capitalize block mt-2 text-center text-black">
                             {recipe.publisher}
                           </span>
