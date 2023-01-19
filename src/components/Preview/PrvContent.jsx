@@ -63,7 +63,7 @@ const PrvContent = ({ recipe, scrollTo }) => {
             <img
               src={recipe.image_url}
               alt={recipe.title}
-              className="object-center object-cover h-full"
+              className="object-center object-cover h-full w-full"
             />
           </div>
         </div>
