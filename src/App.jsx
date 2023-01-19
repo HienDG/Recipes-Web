@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy } from "react";
 
 import * as Ui from "./components/ui/index";
@@ -14,71 +14,77 @@ const Bookmarks = lazy(() => import("./pages/Bookmarks"));
 const Preview = lazy(() => import("./pages/Preview"));
 const CollectionPreview = lazy(() => import("./pages/CollectionPreview"));
 
-const App = () => {
-  return (
-    <Layout>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Ui.Suspense>
-              <Home />
-            </Ui.Suspense>
-          }
-        />
-        <Route
-          path="/menu"
-          element={
-            <Ui.Suspense>
-              <Menu />
-            </Ui.Suspense>
-          }
-        />
-        <Route
-          path="/results"
-          element={
-            <Ui.Suspense>
-              <SearchResult />
-            </Ui.Suspense>
-          }
-        />
-        <Route
-          path="/collections"
-          element={
-            <Ui.Suspense>
-              <Collections />
-            </Ui.Suspense>
-          }
-        />
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: (
+          <Ui.Suspense>
+            <Home />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/menu",
+        element: (
+          <Ui.Suspense>
+            <Menu />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/results",
+        element: (
+          <Ui.Suspense>
+            <SearchResult />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/collections",
+        element: (
+          <Ui.Suspense>
+            <Collections />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/saves",
+        element: (
+          <Ui.Suspense>
+            <Bookmarks />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/results/:id",
+        element: (
+          <Ui.Suspense>
+            <Preview />
+          </Ui.Suspense>
+        ),
+      },
+      {
+        path: "/collections/:id",
+        element: (
+          <Ui.Suspense>
+            <CollectionPreview />
+          </Ui.Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
+  },
+]);
 
-        <Route
-          path="/saves"
-          element={
-            <Ui.Suspense>
-              <Bookmarks />
-            </Ui.Suspense>
-          }
-        />
-        <Route
-          path="/results/:id"
-          element={
-            <Ui.Suspense>
-              <Preview />
-            </Ui.Suspense>
-          }
-        />
-        <Route
-          path="/collections/:id"
-          element={
-            <Ui.Suspense>
-              <CollectionPreview />
-            </Ui.Suspense>
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Layout>
-  );
+const App = ({ children }) => {
+  return <RouterProvider router={router}>{children}</RouterProvider>;
 };
 
 export default App;

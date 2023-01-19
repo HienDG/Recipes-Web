@@ -17,8 +17,8 @@ const PrRecipeItem = ({ recipe, type, path, category }) => {
           image={recipe.image_url}
           title={recipe.title}
           effect="opacity"
-          wrapperClassName="w-full mx-auto flex justify-center items-center"
-          imageClassName="object-cover object-center w-full lg:h-48 md:h-36"
+          wrapperClassName="h-[200px] overflow-hidden mx-auto flex justify-center items-center"
+          imageClassName="object-cover object-center w-full h-full"
         />
         <div className="absolute top-0 -right-11 group-hover:right-5 p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <button onClick={bookmark.event.bind(null, recipe)}>
@@ -35,7 +35,7 @@ const PrRecipeItem = ({ recipe, type, path, category }) => {
           <h2 className="mb-1 text-xs font-medium tracking-widest text-gray-400 title-font">
             CATEGORY: <span className="capitalize">{category}</span>
           </h2>
-          <h1 className="mb-3 group-hover:font-bold text-lg font-medium group-hover:scale-110 cursor-pointer text-gray-900 capitalize title-font h-[100px] overflow-hidden flex items-center justify-center">
+          <h1 className="my-4 text-lg font-medium group-hover:underline cursor-pointer text-gray-900 capitalize title-font h-[30px] overflow-hidden">
             <Link to={path} className="text-center">
               {recipe.title}
             </Link>

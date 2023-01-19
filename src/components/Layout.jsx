@@ -1,6 +1,6 @@
 import { memo, useContext, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
-import { useLocation, Link, useMatch } from "react-router-dom";
+import { useLocation, Link, useMatch, Outlet } from "react-router-dom";
 
 import { MdArrowRight } from "react-icons/md";
 
@@ -14,6 +14,7 @@ import { LoadingSpinner } from "./ui";
 const Wrapper = styled.main`
   padding-top: 73px;
   background-color: #f0f0f0;
+  min-height: 100vh;
 `;
 
 const BreadCrumb = ({ path }) => {
@@ -35,7 +36,7 @@ const BreadCrumb = ({ path }) => {
   return (
     <div className="bg-white shadow-md" ref={containerRef}>
       <section
-        className="container md:flex hidden mx-auto md:w-[1200px] px-5 max-w-full text-[1.25rem] gap-3 py-6"
+        className="container md:flex hidden mx-auto md:w-[1200px] px-5 max-w-full text-[1.25rem] gap-3 py-2"
         hidden={isHidden}
       >
         {location.map((item, i) => (
@@ -66,7 +67,9 @@ const Layout = ({ children }) => {
       <Navbar />
       <Wrapper>
         <BreadCrumb path={path} />
-        <div className={`mt-[30px] ${isLoading ? "h-screen" : "h-full"}`}>{children}</div>
+        <div className={`mt-[30px] ${isLoading ? "h-screen" : "h-full"} min-h-screen`}>
+          <Outlet />
+        </div>
       </Wrapper>
       {isLoading ? (
         <div className="fixed bg-white top-[73px] h-screen left-0 right-0 z-50">

@@ -6,7 +6,21 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import "react-lazy-load-image-component/src/effects/black-and-white.css";
 
 export const LazyLoadImg = ({ image, title, imageClass, effect }) => {
-  return <LazyLoadImage src={image} alt={title} className={imageClass} effect={effect} />;
+  return (
+    <LazyLoadImage
+      src={image}
+      alt={title}
+      className={imageClass}
+      effect={effect}
+      wrapperProps={{
+        style: {
+          display: "block",
+          height: "100%",
+          width: "100%",
+        },
+      }}
+    />
+  );
 };
 
 const LazyImage = ({ image, effect, wrapperClassName, imageClassName, title = "" }) => {

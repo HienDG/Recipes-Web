@@ -34,7 +34,7 @@ const Bookmarks = () => {
   };
 
   return (
-    <section className="py-24 px-[0.625rem] md:px-4">
+    <section className="pb-10 px-[0.625rem] md:px-4">
       <div className="container mx-auto max-w-full">
         <div className="before:h-[1rem] before:block before:sticky after:h-[1rem] after:block after:sticky">
           <header className="flex py-[5px] px-5">
@@ -47,18 +47,14 @@ const Bookmarks = () => {
             </div>
           </header>
         </div>
-        <div className="flex items-center justify-center gap-4 mb-4 py-10">
+        <div className="flex items-center justify-center gap-4 mb-4">
           <div className="flex border-b-[3px] border-[#a90101] border-solid">
             <p href="" className="p-[0.625rem] text-lg">
               Recipes
             </p>
           </div>
         </div>
-        <article
-          className={` ${
-            recipes.length === 0 ? "h-[500px]" : "h-fit"
-          } max-w-full w-[1200px] mx-auto bg-white shadow-md rounded-2xl px-10`}
-        >
+        <article className="max-w-full w-[1200px] mx-auto bg-white shadow-md rounded-2xl px-5 min-h-screen">
           {recipes.length === 0 ? (
             <div className="h-[500px] flex items-center justify-center">
               <div className="flex flex-col gap-4 text-center">
@@ -77,10 +73,10 @@ const Bookmarks = () => {
               </div>
             </div>
           ) : (
-            <div className="flex flex-wrap -m-4 max-sm:justify-center  py-12">
+            <div className="flex flex-wrap -m-4 max-sm:justify-center">
               {recipes.map((recipe) => (
-                <div className="p-4 lg:w-1/4 md:w-1/3 mt-4 sm:w-1/2 w-[300px]" key={recipe.id}>
-                  <div className="relative h-full bg-[#f0f0f0] overflow-hidden transition border-2 border-gray-500 rounded-lg border-opacity-60 group">
+                <div className="p-4 lg:w-1/4 md:w-1/3 mt-4 sm:w-1/2 w-[300px] " key={recipe.id}>
+                  <div className="relative h-full overflow-hidden transition border-2 border-gray-500 rounded-lg border-opacity-60 group">
                     <img
                       src={recipe.image_url}
                       alt={recipe.title}
@@ -93,7 +89,7 @@ const Bookmarks = () => {
                         </div>
                       </button>
                     </div>
-                    <div className="p-6 mt-2">
+                    <div className="p-6 mt-2 bg-white">
                       <Link to={`/results/${recipe.id}`}>
                         <h2 className="mb-1 text-xs font-medium tracking-widest text-gray-400 uppercase title-font italic">
                           publisher:{" "}
